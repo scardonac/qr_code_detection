@@ -1,0 +1,36 @@
+# Python-related ignores
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment-related ignores
+.venv/
+.env
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Dataset-related ignores
+model/qr_detection_dataset/
+yolo8n.pt
+
+# System-specific ignores
+*.DS_Store
+
+# Ignore logs
+*.log
+
+# Ignore compiled files
+*.so
+*.dll
+
+# Ignore run and detect folders from YOLO runs
+runs/
+detect/
+
+# Ignore Streamlit config files (if any)
+.streamlit/
+
+# Ignore gitignore itself
+!.gitignore
