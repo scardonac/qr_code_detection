@@ -145,7 +145,7 @@ Ensure you have the following installed:
 
 ## How to Use the Frontend
 
-<img src="./images/frontend.png" alt="Frontend" width="800"/>
+<img src="./images/front.png" alt="Frontend" width="800"/>
 
 The frontend is a **Streamlit** application that allows users to upload images and view the results of the QR code detection, including the bounding boxes drawn around the detected QR codes and the extracted QR code content.
 
