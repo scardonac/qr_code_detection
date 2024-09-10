@@ -13,6 +13,8 @@ This project implements a **QR code detection** system using the **YOLOv8n** mod
 6. [Set up](#set-up)
    - [Prerequisites](#prerequisites)
    - [Steps](#steps)
+7. [How to Use the Frontend](#how-to-use-the-frontend)
+8. [Contact](#contact)
 
 ## File Structure
 Here’s an overview of the project’s directory structure:
@@ -140,3 +142,35 @@ Ensure you have the following installed:
    streamlit run frontend/app.py
    ```
    The frontend Streamlit application run at http://localhost:8501
+
+## How to Use the Frontend
+
+The frontend is a **Streamlit** application that allows users to upload images and view the results of the QR code detection, including the bounding boxes drawn around the detected QR codes and the extracted QR code content.
+
+1. **Upload an Image**:
+   - Click the **"Browse files"** button to upload an image (supported formats: `.jpg`, `.jpeg`, `.png`).
+   - Once the image is uploaded, it will be displayed on the page as the **"Original Image"**.
+
+2. **View Detection Results**:
+   - After uploading the image, the app will send the image to the backend API for processing.
+   - The detected QR codes will be displayed below the image with:
+     - **Bounding Box Coordinates**: Showing the coordinates of the QR code within the image.
+     - **QR Code Content**: The extracted information from the detected QR code (if available).
+
+3. **View Bounding Boxes**:
+   - Click the **"Show Bounding Boxes"** button to see the image with bounding boxes drawn around the detected QR codes. The image will update to show the boxes, indicating where the QR codes were detected.
+
+### Example Flow
+
+- **Step 1**: Upload the image.
+- **Step 2**: View the original image on the page.
+- **Step 3**: See the detection results with the QR code content and bounding box coordinates.
+- **Step 4**: Click the button to overlay bounding boxes on the image.
+
+This makes it easy to detect and extract information from QR codes in images, all within a simple and intuitive web interface.
+   
+## Contact
+If you have any questions, comments or suggestions, please feel free to contact me:
+
+- Sara Cardona: cardonasara571@gmail.com
+- Project link: [https://github.com/scardonac/income_prediction](https://github.com/scardonac/qr_code_detection)
