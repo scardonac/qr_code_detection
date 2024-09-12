@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 
-class BoundingBox(BaseModel):
+class QRBoundingBox(BaseModel):
     x_min: int
     y_min: int
     x_max: int
@@ -11,4 +11,4 @@ class BoundingBox(BaseModel):
 
 
 class QRPredictionResponse(BaseModel):
-    predictions: List[BoundingBox]
+    predictions: List[QRBoundingBox]
