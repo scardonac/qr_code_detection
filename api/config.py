@@ -1,3 +1,3 @@
 import os
 
-MODEL_PATH = os.path.join("models", "best_model", "best.pt")
+MODEL_PATH = os.getenv("MODEL_PATH", "./models/best_model/best.pt")
