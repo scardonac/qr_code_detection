@@ -1,14 +1,13 @@
 from ultralytics import YOLO
 
-# Cargar el modelo YOLOv8 preentrenado
+# Load the pre-trained YOLOv8 model
 model = YOLO('yolov8n.pt')  
 
-# Entrenar el modelo
+# Training the model
 results = model.train(
-    data=r'D:\qr_code_detection\model\qr_detection_dataset\data.yaml', 
+    data=r'D:\qr_code_detection\models\qr_detection_dataset\data.yaml', 
     epochs=30,         
-    imgsz=640,          
-    batch=-1,          
+    imgsz=640,                  
     name='qr_code_detection', 
     augment=False,
     patience=5
