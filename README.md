@@ -23,7 +23,7 @@ Here’s an overview of the project’s directory structure:
 │   ├── __init__.py
 │   ├── config.py                # Configuration settings for the API
 │   ├── main.py                  # FastAPI entry point for backend
-│   ├── models.py                # YOLO model loading and prediction
+│   ├── core.py                  # YOLO model loading and prediction
 │   ├── predict.py               # Prediction logic
 │   ├── schemas.py               # Data schemas for API responses
 │   └── utils.py                 # Utility functions for QR code decoding
@@ -35,6 +35,7 @@ Here’s an overview of the project’s directory structure:
 │   └── (F1_curve.png, etc.)     # Images used for README results
 │
 ├── models/                      # Directory for model-related scripts and data
+│   ├── best_model/              # Best model trained with labeled data
 │   ├── data_aug.py              # Data augmentation script
 │   ├── predict.ipynb            # Jupyter Notebook for predictions
 │   └── train.py                 # Training script for the YOLOv8 model
@@ -53,8 +54,7 @@ The model used is **YOLOv8n** (You Only Look Once Nano), a state-of-the-art obje
 The **YOLOv8n.pt** pre-trained model was chosen for the following reasons:
 
 - **Lightweight**: YOLOv8n is the "nano" version of the YOLO family, optimized for speed and efficiency with smaller model sizes, making it ideal for real-time applications on devices with limited computational resources.
-- **Transfer Learning**: By using a pre-trained model, we leverage the general object detection capabilities learned from a large dataset (such as COCO), which helps the model generalize better and converge faster when fine-tuned on a smaller, domain-specific dataset like QR codes.
-- **Real-Time Performance**: YOLOv8n is specifically designed to handle real-time object detection tasks, ensuring minimal latency during inference, which is critical for QR code scanning applications.
+- **Transfer Learning**: By using a pre-trained model, we leverage the general object detection capabilities learned from a large dataset, which helps the model generalize better and converge faster when fine-tuned on a smaller, domain-specific dataset like QR codes.
 
 ## Data Used
 
