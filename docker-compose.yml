@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    container_name: backend_service
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MODEL_PATH=/app/api/models/best_model/best.pt  # Variable de entorno del modelo
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend_service
+    ports:
+      - "8501:8501"
+    networks:
+      - app-network
+    environment:
+      - PYTHONUNBUFFERED=1
+      - BACKEND_URL=http://backend_service:8000
+    depends_on:
+      - backend
+
+networks:
+  app-network:
+    driver: bridge
