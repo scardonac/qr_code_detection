@@ -1,4 +1,4 @@
-# QR Detection and Information Extraction
+# QR Detection using YOLO
 
 This project implements a **QR code detection** system using the **YOLOv8n** model along with a simple frontend built in **Streamlit**. The system is capable of detecting QR codes in images, extracting their content, and drawing bounding boxes around the detected QR codes.
 
@@ -26,10 +26,14 @@ Here’s an overview of the project’s directory structure:
 │   ├── core.py                  # YOLO model loading and prediction
 │   ├── predict.py               # Prediction logic
 │   ├── schemas.py               # Data schemas for API responses
-│   └── utils.py                 # Utility functions for QR code decoding
+│   ├── utils.py                 # Utility functions for QR code decoding
+│   ├── Dockerfile
+│   └── requirements.txt
 │
 ├── frontend/                    # Streamlit frontend
-│   └── app.py                   # Streamlit app to upload images and display results
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── front_app.py             # Streamlit app to upload images and display results
 │
 ├── images/                      # Directory containing images for documentation
 │   └── (F1_curve.png, etc.)     # Images used for README results
@@ -40,6 +44,7 @@ Here’s an overview of the project’s directory structure:
 │   ├── predict.ipynb            # Jupyter Notebook for predictions
 │   └── train.py                 # Training script for the YOLOv8 model
 │
+├── docker-compose.yml
 ├── .gitignore                   # Files and folders to be ignored by Git
 ├── README.md                    # Project documentation
 └── requirements.txt             # Python dependencies for the project
@@ -111,8 +116,7 @@ To set up the project and get it running, follow these steps:
 ### Prerequisites
 
 Ensure you have the following installed:
-- **Python 3.8+**
-- **Pip** (for installing dependencies)
+- **Docker** (for containerizing the application)
 
 ### Steps
 
@@ -121,27 +125,18 @@ Ensure you have the following installed:
    git clone https://github.com/your-repo/qr-code-detection.git
    cd qr-code-detection
    ```
-2. **Create a virtual environment (optional but recommended)**:
+2. **Build and run the containers**:
+   Ensure Docker is running, then use the following command to build and start the containers for both the backend (FastAPI) and frontend (Streamlit):
    ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # For Linux/MacOS
-   .venv\Scripts\activate     # For Windows
+   docker-compose up --build
    ```
-3. **Install the required dependencies**:
+   This will build the Docker images for both the backend and frontend services and start them. The backend will be available at http://localhost:8000 and the frontend at http://localhost:8501.
+   
+4. **Stopping the containers**:
+   To stop the running containers, use:
    ```bash
-   pip install -r requirements.txt
+   docker-compose down
    ```
-4. **Run the API**:
-   ```bash
-   uvicorn api.main:app --reload
-   ```
-   This will start the FastAPI server locally at http://127.0.0.1:8000.
-
-5. **Run the Frontend**: Navigate to the frontend directory and run the Streamlit application:
-   ```bash
-   streamlit run frontend/app.py
-   ```
-   The frontend Streamlit application run at http://localhost:8501
 
 ## How to Use the Frontend
 
