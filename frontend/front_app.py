@@ -2,9 +2,10 @@ import streamlit as st
 import requests
 from PIL import Image, ImageDraw
 import io
+import os
 
 
-API_URL = "http://localhost:8000/qr-detection"
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 
 
 def draw_bounding_boxes(image: Image, predictions: list) -> Image:
@@ -49,8 +50,9 @@ def main():
 
         files = {"file": ("image.png", image_bytes, "image/png")}
         
+        # Making the request to the specific endpoint by concatenating to the base URL
         with st.spinner('Detecting QR codes...'):
-            response = requests.post(API_URL, files=files)
+            response = requests.post(f"{BACKEND_URL}/qr-detection", files=files)
 
         if response.status_code == 200:
             result = response.json()
