@@ -13,24 +13,22 @@ COPY ./api /app/api
 # Copy the models folder containing the trained model
 COPY ./models/best_model /app/api/models/best_model
 
-# Update pip to the latest version
-RUN pip install --upgrade pip
-
 # Install the necessary system dependencies for OpenCV, zbar and other libraries
 RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libglib2.0-0 \
     zbar-tools \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r /app/api/requirements.txt
 
 # Expose the port
-EXPOSE 8000
+EXPOSE 80
 
 # Command to run the application
-CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "80"]
 
 
 

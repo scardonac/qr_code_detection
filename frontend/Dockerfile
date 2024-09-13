@@ -11,9 +11,9 @@ COPY . /app/frontend
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port
-EXPOSE 8501
+EXPOSE 80
 
 # Command to run the application
-CMD ["streamlit", "run", "front_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["streamlit", "run", "front_app.py", "--server.port=80", "--server.address=0.0.0.0"]
 
 

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backend:
     build:
@@ -7,7 +5,7 @@ services:
       dockerfile: ./api/Dockerfile
     container_name: backend_service
     ports:
-      - "8000:8000"
+      - "8000:80"
     networks:
       - app-network
     environment:
@@ -20,12 +18,12 @@ services:
       dockerfile: Dockerfile
     container_name: frontend_service
     ports:
-      - "8501:8501"
+      - "8501:80"
     networks:
       - app-network
     environment:
       - PYTHONUNBUFFERED=1
-      - BACKEND_URL=http://backend_service:8000
+      - BACKEND_URL=http://backend_service
     depends_on:
       - backend
 
