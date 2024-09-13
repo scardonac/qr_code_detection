@@ -1,4 +1,4 @@
-# QR Detection using YOLO
+# QR Code Detection using YOLO
 
 This project implements a **QR code detection** system using the **YOLOv8n** model along with a simple frontend built in **Streamlit**. The system is capable of detecting QR codes in images, extracting their content, and drawing bounding boxes around the detected QR codes.
 
