@@ -15,7 +15,7 @@ COPY ./models/best_model /app/api/models/best_model
 
 # Install the necessary system dependencies for OpenCV, zbar and other libraries
 RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     zbar-tools \
     && apt-get clean \
